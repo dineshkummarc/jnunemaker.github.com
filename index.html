@@ -73,8 +73,10 @@
         t.id    = 'gauges-tracker';
         t.setAttribute('data-site-id', '4da24cfc613f5d1741000001');
         t.src = '//secure.gaug.es/track.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(t, s);
+        if (window.location.host != '') { // don't record hits locally
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(t, s);
+        }
       })();
     </script>
   </body>
